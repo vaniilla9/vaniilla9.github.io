@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darrian Farmer · Software Developer</title>
+<meta name="description" content="Darrian Farmer, software developer in Indianapolis. iOS apps, cross-platform mobile, backend services and games.">
+<meta property="og:title" content="Darrian Farmer · Software Developer">
+<meta property="og:description" content="iOS apps, cross-platform mobile, backend services and games.">
+<meta property="og:image" content="https://vaniilla9.github.io/img/darrian.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%234f46e5'/><text x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'>DF</text></svg>">
+<style>
+  :root {
+    --bg: #fafaf9; --surface: #ffffff; --text: #1c1917; --muted: #57534e; --faint: #a8a29e;
+    --border: #e7e5e4; --accent: #4f46e5; --accent-soft: #eef2ff; --shot-bg: #f5f5f4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c0a09; --surface: #1c1917; --text: #f5f5f4; --muted: #a8a29e; --faint: #78716c;
+      --border: #292524; --accent: #818cf8; --accent-soft: #1e1b4b; --shot-bg: #171412;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; overflow-x: hidden; background: var(--bg); color: var(--text);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  nav { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(180%) blur(12px);
+        background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  nav .name { font-weight: 700; color: var(--text); }
+  nav .links a { color: var(--muted); margin-left: 22px; font-size: 15px; }
+  nav .links a:hover { color: var(--text); text-decoration: none; }
+
+  header { padding: 88px 0 72px; }
+  .hero { display: flex; gap: 40px; align-items: center; }
+  .hero img { width: 148px; height: 148px; border-radius: 50%; object-fit: cover; flex: none;
+              border: 4px solid var(--surface); box-shadow: 0 8px 30px rgba(0,0,0,.12); }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 15px; letter-spacing: .02em; margin: 0 0 6px; }
+  h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.05; margin: 0 0 16px; letter-spacing: -.02em; }
+  .lede { font-size: 19px; color: var(--muted); max-width: 640px; margin: 0 0 24px; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 10px 18px; border-radius: 10px; font-weight: 600; font-size: 15px;
+         border: 1px solid var(--border); color: var(--text); background: var(--surface); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn:hover { text-decoration: none; filter: brightness(1.05); }
+
+  section { padding: 40px 0 72px; }
+  h2 { font-size: 30px; letter-spacing: -.01em; margin: 0 0 8px; }
+  .section-sub { color: var(--muted); margin: 0 0 40px; }
+
+  .project { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: center;
+             background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+             padding: 36px; margin-bottom: 28px; }
+  .project.wide { grid-template-columns: minmax(0, 1fr); }
+  .project > * { min-width: 0; }
+  .project h3 { font-size: 24px; margin: 0 0 4px; }
+  .project .kind { color: var(--faint); font-size: 14px; font-weight: 600; text-transform: uppercase;
+                   letter-spacing: .06em; margin: 0 0 14px; }
+  .project p { color: var(--muted); margin: 0 0 14px; }
+  .project ul { color: var(--muted); margin: 0 0 18px; padding-left: 20px; }
+  .project li { margin-bottom: 6px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .tag { background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 600;
+         padding: 4px 10px; border-radius: 999px; }
+  .shot { background: var(--shot-bg); border-radius: 14px; padding: 18px; display: flex; justify-content: center; }
+  .shot img { max-width: 100%; max-height: 520px; border-radius: 12px; display: block;
+              box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+  .wide .shot img { max-height: none; width: 100%; }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .skill { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
+  .skill h3 { font-size: 16px; margin: 0 0 8px; }
+  .skill p { color: var(--muted); margin: 0; font-size: 15px; }
+
+  .contact { text-align: center; background: var(--surface); border: 1px solid var(--border);
+             border-radius: 20px; padding: 48px 24px; }
+  .contact p { color: var(--muted); max-width: 520px; margin: 0 auto 24px; }
+  .contact .buttons { justify-content: center; }
+  footer { color: var(--faint); font-size: 14px; text-align: center; padding: 32px 0 48px; }
+
+  @media (max-width: 760px) {
+    header { padding: 48px 0 40px; }
+    .hero { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .hero img { width: 112px; height: 112px; }
+    .project { grid-template-columns: minmax(0, 1fr); padding: 22px; gap: 22px; }
+    .shot img { max-height: 440px; }
+    nav .links a { margin-left: 14px; }
+    nav .links a.hide-sm { display: none; }
+    .wrap { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="#top">Darrian Farmer</a>
+    <div class="links">
+      <a href="#projects">Projects</a>
+      <a class="hide-sm" href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap hero">
+    <img src="img/darrian.jpg" alt="Darrian Farmer">
+    <div>
+      <p class="eyebrow">Software developer · Indianapolis, IN</p>
+      <h1>Hi, I'm Darrian.</h1>
+      <p class="lede">I build complete products end to end: native iOS and macOS apps, cross-platform mobile
+        apps, backend services, data tools and games. I care about clean architecture, automated testing and
+        shipping things people actually use.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn" href="https://github.com/vaniilla9">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/darrian-farmer-68141a276">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="section-sub">Source code is private. I'm happy to walk through any of it in an interview.</p>
+
+    <article class="project">
+      <div>
+        <h3>JellyStream</h3>
+        <p class="kind">iPhone &amp; iPad app + server · on TestFlight</p>
+        <p>A streaming app for self-hosted Jellyfin media servers, with a companion server that adds the social
+          features Jellyfin doesn't have.</p>
+        <ul>
+          <li>Watch parties with synchronized playback and live reactions</li>
+          <li>Offline downloads, with a scheduler that protects the media server</li>
+          <li>Friends, messaging, share links and push notifications</li>
+          <li>~29k lines of TypeScript plus a Node.js server using WebSockets, SQLite and APNs</li>
+        </ul>
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">WebSockets</span><span class="tag">SQLite</span></div>
+        <a href="https://github.com/vaniilla9/jellystream">Project page →</a>
+      </div>
+      <div class="shot"><img src="img/jellystream.jpg" alt="JellyStream home screen" loading="lazy"></div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Vantheria</h3>
+        <p class="kind">iPhone game · in beta on TestFlight</p>
+        <p>A dark-fantasy, turn-based RPG with a seven-chapter story. It began as a Discord bot I wrote in
+          Python, and I rebuilt it as a native SwiftUI game.</p>
+        <ul>
+          <li>A deterministic game engine, so any battle can be replayed exactly in tests</li>
+          <li>129 automated tests, including full playthroughs by a bot player</li>
+          <li>A balance simulator that plays the real engine across many random seeds</li>
+          <li>No third-party dependencies</li>
+        </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Swift Testing</span><span class="tag">iCloud</span></div>
+        <a href="https://github.com/vaniilla9/vantheria">Project page →</a>
+      </div>
+      <div class="shot"><img src="img/vantheria.jpg" alt="Vantheria boss battle" loading="lazy"></div>
+    </article>
+
+    <article class="project wide">
+      <div>
+        <h3>Trading Bot</h3>
+        <p class="kind">Python system · running 24/7</p>
+        <p>Runs six trading strategies around the clock on live crypto and stock prices, each with a simulated
+          $10,000 wallet, plus a backtester and a live dashboard. Backtests and live trading share one engine,
+          and the results are reported honestly, including where the strategy underperformed buy-and-hold.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">SQLite</span><span class="tag">JavaScript</span><span class="tag">pytest</span></div>
+        <a href="https://github.com/vaniilla9/trading-bot">Project page →</a>
+      </div>
+      <div class="shot"><img src="img/trading-bot.jpg" alt="Trading bot dashboard" loading="lazy"></div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Depths of the Old</h3>
+        <p class="kind">Mobile game · Unity</p>
+        <p>A pixel-art action roguelite with procedural dungeons and an endless <em>Vampire Survivors</em>-style
+          arena, built for one-thumb play.</p>
+        <ul>
+          <li>Scenes, prefabs and content generated entirely from code</li>
+          <li>Music and sound effects synthesized by my own Python tools</li>
+          <li>Self-playing test modes with automatic screenshots</li>
+        </ul>
+        <div class="tags"><span class="tag">C#</span><span class="tag">Unity 6</span><span class="tag">Python</span></div>
+        <a href="https://github.com/vaniilla9/depths-of-the-old">Project page →</a>
+      </div>
+      <div class="shot"><img src="img/depths.jpg" alt="Depths of the Old town hub" loading="lazy"></div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Mac Control</h3>
+        <p class="kind">macOS menu bar app</p>
+        <p>A native utility for the power-user settings macOS hides: lid-closed sleep, the Apple Silicon GPU
+          memory limit and power mode, plus a live system and network monitor built on low-level macOS APIs.</p>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">AppKit</span><span class="tag">macOS APIs</span></div>
+        <a href="https://github.com/vaniilla9/mac-control">Project page →</a>
+      </div>
+      <div class="shot"><img src="img/mac-control.jpg" alt="Mac Control menu bar panel" loading="lazy"></div>
+    </article>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="section-sub">What I use to build these projects.</p>
+    <div class="skills">
+      <div class="skill"><h3>Languages</h3><p>Swift, TypeScript / JavaScript, Python, C#</p></div>
+      <div class="skill"><h3>Mobile &amp; desktop</h3><p>SwiftUI, UIKit / AppKit, React Native, Unity</p></div>
+      <div class="skill"><h3>Backend &amp; data</h3><p>Node.js, WebSockets, REST APIs, SQLite, pandas / NumPy</p></div>
+      <div class="skill"><h3>Practice</h3><p>Automated testing (Swift Testing, XCUITest, pytest), Git, TestFlight releases</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Let's talk</h2>
+      <p>I'm open to software development roles. The fastest way to reach me is email or LinkedIn.</p>
+      <div class="buttons">
+        <a class="btn primary" href="mailto:vaniilla9@icloud.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/darrian-farmer-68141a276">LinkedIn</a>
+        <a class="btn" href="https://github.com/vaniilla9">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Darrian Farmer</footer>
+
+</body>
+</html>

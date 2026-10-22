@@ -75,6 +75,13 @@
               box-shadow: 0 10px 30px rgba(0,0,0,.18); }
   .wide .shot img { max-height: none; width: 100%; }
 
+  .more { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .more a.card { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+                 padding: 22px; color: var(--text); }
+  .more a.card:hover { text-decoration: none; border-color: var(--accent); }
+  .more h3 { font-size: 17px; margin: 0 0 6px; }
+  .more p { color: var(--muted); margin: 0 0 12px; font-size: 15px; }
+  .more .tags { margin: 0; }
   .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
   .skill { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
   .skill h3 { font-size: 16px; margin: 0 0 8px; }
@@ -217,6 +224,33 @@
       </div>
       <div class="shot"><img src="img/mac-control.jpg" alt="Mac Control menu bar panel" loading="lazy"></div>
     </article>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <h2>More projects</h2>
+    <p class="section-sub">Smaller tools and bots I built and run.</p>
+    <div class="more">
+      <a class="card" href="https://github.com/vaniilla9/vland-bot">
+        <h3>V-Land Bot</h3>
+        <p>Discord bot for my community: a creature-collecting game with an economy, seasons and events, plus an AI
+          personality powered by Claude or a local model. ~32,500 lines.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">discord.py</span><span class="tag">LLMs</span></div>
+      </a>
+      <a class="card" href="https://github.com/vaniilla9/media-request-bot">
+        <h3>Media Request Bot</h3>
+        <p>Discord bot for media requests, library trivia and support tickets, integrating Radarr, Sonarr, Jellyfin
+          and Bazarr. ~12,400 lines.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">REST APIs</span></div>
+      </a>
+      <a class="card" href="https://github.com/vaniilla9/moviepicker">
+        <h3>MoviePicker</h3>
+        <p>A guided "what should we watch?" web app for Jellyfin with live match counts and instant re-rolls. Zero
+          dependencies.</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Node.js</span></div>
+      </a>
+    </div>
   </div>
 </section>
 

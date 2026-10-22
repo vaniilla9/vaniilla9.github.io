@@ -51,6 +51,42 @@
   .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
   .btn:hover { text-decoration: none; filter: brightness(1.05); }
 
+  :root { --ember: #c2410c; --ember-soft: #fff1e6; --flag-bg: linear-gradient(160deg, #fffaf3 0%, #fbeee0 100%); }
+  @media (prefers-color-scheme: dark) {
+    :root { --ember: #fb923c; --ember-soft: #2a160b; --flag-bg: linear-gradient(160deg, #1f1712 0%, #140e0a 100%); }
+  }
+  #flagship { padding: 8px 0 64px; }
+  .flagship { background: var(--flag-bg); border: 1px solid color-mix(in srgb, var(--ember) 35%, var(--border));
+              border-radius: 24px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,.18); }
+  .flag-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .badge { font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 5px 12px;
+           border-radius: 999px; background: var(--ember-soft); color: var(--ember); }
+  .badge.soon { background: var(--ember); color: #fff; }
+  .flagship h2 { font-size: clamp(34px, 5vw, 48px); margin: 0 0 6px; letter-spacing: -.02em; }
+  .flagship .tagline { font-size: 20px; color: var(--ember); font-weight: 600; margin: 0 0 14px; }
+  .flagship .desc { color: var(--muted); max-width: 760px; margin: 0 0 26px; font-size: 18px; }
+  .flag-shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0 0 28px; }
+  .flag-shots img { width: 100%; border-radius: 16px; display: block; box-shadow: 0 12px 34px rgba(0,0,0,.28); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin: 0 0 26px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+  .stat b { display: block; font-size: 24px; letter-spacing: -.01em; }
+  .stat span { color: var(--muted); font-size: 14px; }
+  .flag-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; margin-bottom: 26px; }
+  .flag-cols h3 { font-size: 16px; margin: 0 0 8px; }
+  .flag-cols ul { color: var(--muted); margin: 0; padding-left: 20px; }
+  .flag-cols li { margin-bottom: 6px; }
+  .btn.ember { background: var(--ember); border-color: var(--ember); color: #fff; }
+  .flagship .note { font-size: 14px; color: var(--faint); margin: 12px 0 0; }
+  @media (max-width: 760px) {
+    .flagship { padding: 22px; border-radius: 20px; }
+    .flag-shots { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .flag-shots img { border-radius: 10px; }
+    .flag-cols { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+    .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .stat { padding: 10px 12px; }
+    .stat b { font-size: 19px; }
+    .stat span { font-size: 12px; }
+  }
   section { padding: 40px 0 72px; }
   h2 { font-size: 30px; letter-spacing: -.01em; margin: 0 0 8px; }
   .section-sub { color: var(--muted); margin: 0 0 40px; }
@@ -111,6 +147,7 @@
   <div class="wrap">
     <a class="name" href="#top">Darrian Farmer</a>
     <div class="links">
+      <a href="#flagship">Vantheria</a>
       <a href="#projects">Projects</a>
       <a class="hide-sm" href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -126,9 +163,11 @@
       <h1>Hi, I'm Darrian.</h1>
       <p class="lede">I build complete products end to end: native iOS and macOS apps, cross-platform mobile
         apps, backend services, data tools and games. I care about clean architecture, automated testing and
-        shipping things people actually use.</p>
+        shipping things people actually use. Right now I'm getting my RPG, <a href="#flagship">Vantheria</a>,
+        ready for the App Store.</p>
       <div class="buttons">
-        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn primary" href="#flagship">See Vantheria</a>
+        <a class="btn" href="#projects">All projects</a>
         <a class="btn" href="https://github.com/vaniilla9">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/darrian-farmer-68141a276">LinkedIn</a>
       </div>
@@ -137,6 +176,57 @@
 </header>
 
 <main>
+<section id="flagship">
+  <div class="wrap">
+    <div class="flagship">
+      <div class="flag-badges"><span class="badge">Flagship project</span><span class="badge soon">Coming soon to the App Store</span></div>
+      <h2>Vantheria</h2>
+      <p class="tagline">Seven lands, one blight, three endings.</p>
+      <p class="desc">A dark-fantasy, turn-based RPG for iPhone and iPad, built natively in SwiftUI. It began as a
+        Discord RPG I ran for my community, and I rebuilt it from the ground up as a full mobile game with a
+        seven-chapter story, tactical battles and a deterministic, fully tested engine.</p>
+      <div class="flag-shots">
+        <img src="img/vantheria-story.jpg" alt="Chapter intro: Ashen Reach" loading="lazy">
+        <img src="img/vantheria.jpg" alt="Boss battle against Ozrak, the Cinder King" loading="lazy">
+        <img src="img/vantheria-bestiary.jpg" alt="Bestiary" loading="lazy">
+      </div>
+      <div class="stats">
+        <div class="stat"><b>~19,400</b><span>lines of Swift</span></div>
+        <div class="stat"><b>139</b><span>automated tests</span></div>
+        <div class="stat"><b>21</b><span>classes</span></div>
+        <div class="stat"><b>82</b><span>enemies</span></div>
+        <div class="stat"><b>3</b><span>languages</span></div>
+      </div>
+      <div class="flag-cols">
+        <div>
+          <h3>The game</h3>
+          <ul>
+            <li>Tactical battles: see the enemy's next move, chain elemental combos, break guards</li>
+            <li>Choices that lead to one of three endings</li>
+            <li>Relics, loot, gear sets, crafting and a home village to rebuild</li>
+            <li>An endless roguelite tower, New Game+ and three difficulties</li>
+          </ul>
+        </div>
+        <div>
+          <h3>How it's built</h3>
+          <ul>
+            <li>A pure, deterministic engine: any battle can be replayed exactly in tests</li>
+            <li>A balance simulator where bot players run the real engine across many seeds</li>
+            <li>Data-driven content with every reference validated at launch</li>
+            <li>English, Spanish and German, iCloud saves, no third-party dependencies</li>
+          </ul>
+        </div>
+      </div>
+      <div class="buttons">
+        <a class="btn ember" href="https://testflight.apple.com/join/w8hMG9HQ">Play the beta on TestFlight</a>
+        <a class="btn" href="https://github.com/vaniilla9/vantheria">Project page</a>
+      </div>
+      <p class="note">iPhone or iPad with the free TestFlight app. If the link is full or expired,
+        <a href="mailto:vaniilla9@icloud.com?subject=Vantheria%20beta">email me</a> for access.</p>
+    </div>
+  </div>
+</section>
+
 <section id="projects">
   <div class="wrap">
     <h2>Projects</h2>
@@ -158,29 +248,6 @@
         <a href="https://github.com/vaniilla9/jellystream">Project page →</a>
       </div>
       <div class="shot"><img src="img/jellystream.jpg" alt="JellyStream home screen" loading="lazy"></div>
-    </article>
-
-    <article class="project">
-      <div>
-        <h3>Vantheria</h3>
-        <p class="kind">iPhone game · in beta on TestFlight</p>
-        <p>A dark-fantasy, turn-based RPG with a seven-chapter story. It began as a Discord RPG I ran for my community, and I rebuilt it from the ground up as a
-          native SwiftUI game.</p>
-        <ul>
-          <li>A deterministic game engine, so any battle can be replayed exactly in tests</li>
-          <li>132 automated tests, including full playthroughs by a bot player</li>
-          <li>A balance simulator that plays the real engine across many random seeds</li>
-          <li>No third-party dependencies</li>
-        </ul>
-        <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Swift Testing</span><span class="tag">iCloud</span></div>
-        <div class="buttons">
-          <a class="btn primary" href="https://testflight.apple.com/join/w8hMG9HQ">Play the beta on TestFlight</a>
-          <a class="btn" href="https://github.com/vaniilla9/vantheria">Project page</a>
-        </div>
-        <p class="note">iPhone or iPad with the free TestFlight app. If the link is full or expired,
-          <a href="mailto:vaniilla9@icloud.com?subject=Vantheria%20beta">email me</a> for access.</p>
-      </div>
-      <div class="shot"><img src="img/vantheria.jpg" alt="Vantheria boss battle" loading="lazy"></div>
     </article>
 
     <article class="project wide">
